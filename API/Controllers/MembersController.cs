@@ -14,7 +14,6 @@ namespace API.Controllers
             return Ok(await _memberRepository.GetMembersAsync());
         }
 
-        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Member>> GetMember(string id)
         {

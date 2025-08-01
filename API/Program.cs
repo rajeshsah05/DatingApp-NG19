@@ -9,6 +9,15 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// builder.WebHost.ConfigureKestrel(options =>
+// {
+//     options.ListenLocalhost(5001, listenOption =>
+//     {
+//         listenOption.UseHttps();
+//         listenOption.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http1;
+//     });
+// });
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -35,7 +44,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 });
 var app = builder.Build();
 app.UseMiddleware<ExceptionMiddleware>();
-app.UseCors(x => x.WithOrigins("http://localhost:4200", "https://localhost:4200")
+app.UseCors(x => x.WithOrigins("https://localhost:4200")
  .AllowAnyHeader()
  .AllowAnyMethod()
  );
