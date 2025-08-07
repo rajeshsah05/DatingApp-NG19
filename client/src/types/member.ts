@@ -18,9 +18,18 @@ export type Photo = {
     memberId: string;
 }
 
-export type EditableMember ={
-    displayName:string;
+export type EditableMember = {
+    displayName: string;
     description?: string;
-    city:string;
-    country:string;
+    city: string;
+    country: string;
+}
+
+export class MemberParams {
+    gender?: string;
+    minAge = 10;
+    maxAge = 100;
+    pageNumber = 1;
+    pageSize = 10;
+    orderBy = 'lastActive';
 }
